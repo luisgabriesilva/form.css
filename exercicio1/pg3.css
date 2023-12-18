@@ -1,0 +1,29 @@
+body{
+    margin: 10%;
+    margin-left: 27%;
+    margin-right: 27%;
+    background-color: black;
+    color: beige;
+    text-align: center;
+    
+}
+fieldset{
+    display: flex;
+    margin-left:5%;
+}
+form{
+    border: solid 1px wheat;
+    padding: 6%;
+    box-shadow: 5px 5px 5px red ;
+
+}
+.required{
+    margin-left:7%;
+}
+button{
+    margin-top: 5%;
+    padding: 10px;
+    color: black;
+    background-color: beige;
+    border-radius: 10px;
+}

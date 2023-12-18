@@ -1,0 +1,17 @@
+body{
+    margin: 20px;
+    padding: 20px;
+    color: beige;
+    background-color: black;
+    text-align: center;
+    font-size: 17px;
+}
+fieldset{
+    margin: 30px;
+}
+a{
+    padding: 10px;
+    color: black;
+    background-color: beige;
+    border-radius: 10px;
+}

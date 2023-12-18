@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../exercicio1/pg3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+    <style>
+      div {
+        margin: 10px 0;
+      }
+      small {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form autocomplete="off">
+      <div>
+        <label for="email"></label>
+        <input type="text" id="email" placeholder="Digite o seu e-mail" />
+        <small id="textEmail"></small>
+      </div>
+
+      <div>
+        <label for="password"></label>
+        <input type="password" onchange='confereSenha()' id="password" placeholder="Digite a sua senha"/>
+        <small id="textPassword"></small>
+      </div>
+      <div>
+        <label for="password"></label>
+        <input type="password" onchange='confereSenha()' id="password" placeholder="confirmaçao de senha"/>
+        <small id="textPassword1"></small>
+      </div>
+      
+      <select class="required" id="estado">
+        <option value="">AC</option>
+        <option value="">AL</option>
+        <option value="">AP</option>
+        <option value="">AM</option>
+        <option value="">BA</option>
+        <option value="">CE</option>
+        <option value="">DF</option>
+        <option value="">ES</option>
+        <option value="">GO</option>
+        <option value="">MA</option>
+        <option value="">MT</option>
+        <option value="">MG</option>
+        <option value="">PA</option>
+        <option value="">PB</option>
+        <option value="">PR</option>
+        <option value="">PE</option>
+        <option value="">PI</option>
+        <option value="">RJ</option>
+        <option value="">RN</option>
+        <option value="">RS</option>
+        <option value="">RO</option>
+        <option value="">RR</option>
+        <option value="">SC</option>
+        <option value="">SP</option>
+        <option value="">SE</option>
+        <option value="">TO</option>
+    </select >
+    <fieldset class=" genero">
+            <legend> genero </legend>
+            <input type="radio" id="genero1" name="genero" value="masculino" class="required" />
+            <lebal for="genero1">masculino</lebal><br>
+            <input type="radio" id="genero2" name="genero" value="feminino" class="required" />
+            <lebal for="genero2">feminino</lebal><br>
+            <input type="radio" id="genero3" name="genero" value="nenhum" class="required" />
+            <lebal for="genero3">nenhum desses</lebal><br>
+            </fieldset>
+
+            <label>FOTO SUA</label><br>
+            <input type="file" id="FOTO" name="FOTO" accept=".pdf" required /><br><br>
+            </fieldset>
+    
+
+      <small id="textForm"></small>
+      
+    </form>
+    <button type="submit">fim</button>
+
+    <script >
+        let email = document.getElementById("email");
+let password = document.getElementById("password");
+let form = document.querySelector("form");
+let textForm = document.getElementById("textForm");
+let textEmail = document.getElementById("textEmail");
+let textPassword = document.getElementById("textPassword");
+textPassword = document.getElementById("textPassword1");
+
+form.addEventListener("submit", (e) => {
+  if (email.value == "" && password.value == "") {
+    textForm.textContent = "Você precisa preencher todos os campos!";
+  } else if (
+    validatorEmail(email.value) === true &&
+    validatorPassword(password.value) === true
+  ) {
+    console.log(email.value);
+    console.log(password.value);
+    textForm.textContent = "";
+    textEmail.textContent = "";
+    textPassword.textContent = "";
+  } else {
+    console.log("Requisição não atendida");
+  }
+
+  e.preventDefault();
+});
+
+email.addEventListener("keyup", () => {
+  if (validatorEmail(email.value) !== true) {
+    textEmail.textContent = "O formato do email deve ser Ex: name@abc.com";
+  } else {
+    textEmail.textContent = "";
+  }
+});
+
+password.addEventListener("keyup", () => {
+  if (validatorPassword(password.value) !== true) {
+    textPassword.textContent =
+      "O formato da senha deve ser no min 6 caracteres";
+  } else {
+    textPassword.textContent = "";
+  }
+});
+
+function validatorEmail(email) {
+  let emailPattern =
+    /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+  return emailPattern.test(email);
+}
+
+function validatorPassword(password) {
+  let passwordPattern =
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+  return passwordPattern.test(password);
+}
+
+function confereSenha() {
+            const senha = document.querySelector('input[name=senha]');
+            const confrima = document.querySelector('input[name=confrima]');
+
+            if (confrima.value === senha.value) {
+                confrima.setCustomValidity('');
+            } else {
+                confrima.setCustomValidity('as senhas não confrima');
+            }
+        }
+
+
+    </script>
+  </body>
+</html>

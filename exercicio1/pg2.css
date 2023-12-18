@@ -1,0 +1,49 @@
+.like{
+    display: flex;
+    margin-left: 35%;
+    
+}
+.icon{
+    list-style-type: none;
+    cursor: pointer;
+    color: #ffe500;
+    font-size: 50px;
+}
+
+.icon::before{
+    content:"\2605";
+}
+.icon.ativo ~ .icon::before{
+    content:"\2606";
+}
+.like:hover .icon::before{
+    content:"\2605";
+}
+.icon:hover ~ .icon::before{
+    content:"\2606";
+}
+
+body{
+    text-align: center;
+}
+fieldset{
+    margin: 10%;
+
+}
+textarea{
+    width: 80%;
+}
+body{
+    margin: 20px;
+    padding: 20px;
+    color: beige;
+    background-color: black;
+    text-align: center;
+    font-size: 17px;
+}
+a{
+    padding: 10px;
+    color: black;
+    background-color: beige;
+    border-radius: 10px;
+}
